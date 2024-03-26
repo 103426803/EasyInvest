@@ -8,15 +8,35 @@
   <span style="color:red;">@ViewBag.ErrorMessage</span>
 }
 
-<form method="post" asp-action="Login">
-  <div class="form-group">
-    <label for="Username">Username:</label>
-    <input type="text" name="Username" id="Username" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="Password">Password:</label>
-    <input type="password" name="Password" id="Password" class="form-control" />
-  </div>
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<fieldset>
+    <legend>Mvc Simple Login Application Demo</legend>
 
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @if (ViewBag.Message != null)
+    {
+        <p style="border: 1px solid
+red">
+            @ViewBag.Message
+        </p>
+    }
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.Username)</td>
+            <td>@Html.TextBoxFor(a => a.Username)</td>
+            <td>@Html.ValidationMessageFor(a => a.Username)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.Password)</td>
+            <td>@Html.PasswordFor(a => a.Password)</td>
+            <td>@Html.ValidationMessageFor(a => a.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login" /></td>
+            <td></td>
+        </tr>
+    </table>
+</fieldset>
