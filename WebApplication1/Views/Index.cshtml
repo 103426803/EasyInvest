@@ -1,0 +1,22 @@
+﻿@using WebApplication1.Models;
+@model User
+
+<h1>Login</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+  <span style="color:red;">@ViewBag.ErrorMessage</span>
+}
+
+<form method="post" asp-action="Login">
+  <div class="form-group">
+    <label for="Username">Username:</label>
+    <input type="text" name="Username" id="Username" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="Password">Password:</label>
+    <input type="password" name="Password" id="Password" class="form-control" />
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+

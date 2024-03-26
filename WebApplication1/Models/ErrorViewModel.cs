@@ -1,9 +1,8 @@
-namespace WebApplication1.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
+namespace WebApplication1.Models;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+public class User
+{
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string Email { get; set; } // Optional for registration
 }
